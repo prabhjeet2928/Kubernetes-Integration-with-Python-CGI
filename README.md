@@ -16,7 +16,8 @@ Feature necessary -
 4. Scale the replica according to user need. 
 5. Delete complete environment created. 
 6. Delete specific resources given by user. 
-7. Extra features related to k8s ( Optional) 
+7. Extra features related to k8s ( Optional).
+
 Note - There should be webUI based menu display so that user can get to know what your webapp can do. 
 
 This app will help the user to run all the Kubernetes commands.
