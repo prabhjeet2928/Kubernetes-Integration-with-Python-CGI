@@ -1,0 +1,218 @@
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Kubernetes Page</title>
+  <link rel="stylesheet" href="kubernetes.css">
+  <link rel="icon" href="image.png" sizes="32x32" type="image/png">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+function Check() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("ge").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key="+i+"&x=None&y=None", true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+}
+function launchPod() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("lp1").value
+	var j = document.getElementById("lp2").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key=launchpod&x="+i+"&y="+j, true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+	document.getElementById("lp1").value = "";
+	document.getElementById("lp2").value = "";
+}
+function podDeployment() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("pd1").value
+	var j = document.getElementById("pd2").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key=podDeployment&x="+i+"&y="+j, true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+	document.getElementById("pd1").value = "";
+	document.getElementById("pd2").value = "";
+}
+function scaleReplica() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("sr1").value
+	var j = document.getElementById("sr2").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key=scaleReplica&x="+i+"&y="+j, true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+	document.getElementById("sr1").value = "";
+	document.getElementById("sr2").value = "";
+}
+function portNumber() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("pn1").value
+	var j = document.getElementById("pn2").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key=portNumber&x="+i+"&y="+j, true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+	document.getElementById("pn1").value = "";
+	document.getElementById("pn2").value = "";
+}
+function freeResource() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("fr").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key=freeResource&x="+i+"&y=None", true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+	document.getElementById("fr").value = "";
+}
+function delEnv() {
+	var xhr = new XMLHttpRequest();
+	var i = document.getElementById("de1").value
+	var j = document.getElementById("de2").value
+	xhr.open("GET", "http://192.168.99.101/cgi-bin/task9/kubernetes.py?key=delEnv&x="+i+"&y="+j, true);
+	xhr.send();
+	xhr.onload = function() {
+		var output = xhr.responseText;
+		document.getElementById("op").innerHTML = output;
+	}
+	document.getElementById("de2").value = "";
+}
+</script>
+</head>
+<body>
+	<img id="img1" src="image.png"/>
+	<img id="img2" src="image.png"/>
+	<center><h1>Welcome to the Kubernetes Website!!!</h1></center>
+	<br><br><br>
+  <div class="container">
+        <div class="card">
+      <h3 class="title">Launch your<br> Pod</h3><br>
+      <div class="bar">
+        <input id="lp1" class="w3-input" type="text" placeholder="Name of pod"><br>
+        <input id="lp2" class="w3-input" type="text" placeholder="Image Name">
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="launchPod();"></div>
+    </div>
+    <div class="card">
+      <h3 class="title">Deployment</h3><br>
+      <div class="bar">
+        <input id="pd1" class="w3-input" type="text" placeholder="Deployment Name"><br>
+        <input id="pd2" class="w3-input" type="text" placeholder="Image Name">
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="podDeployment();"></div>
+    </div>
+    <div class="card">
+      <h3 class="title">Expose Port<br> Number</h3>
+      <div class="bar">
+        <input id="pn1" class="w3-input" type="text" placeholder="Deployment Name"><br>
+        <input id="pn2" class="w3-input" type="text" placeholder="port number">        
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="portNumber();"></div>
+    </div>
+    <div class="card">
+      <h3 class="title">Scale <br>Replica</h3><br>
+      <div class="bar">
+        <input id="sr1" class="w3-input" type="text" placeholder="Deployment Name"><br>
+        <input id="sr2" class="w3-input" type="text" placeholder="Number of Replica">
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="scaleReplica();"></div>
+    </div>
+    <div class="card">
+      <h3 class="title">Delete Resources<br>(free port services)</h3>
+      <div class="bar">
+        <input id="fr" class="w3-input" type="text" placeholder="Service Name"><br>
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="freeResource();"></div>
+    </div>
+    <div class="card">
+      <h3 class="title">Delete Environment</h3>
+      <div class="bar">
+        <select id="de1" class="w3-input" type="text" placeholder="Pod Name">
+          <option>Pod</option>
+          <option>Deployment</option>
+        </select><br>
+        <input id="de2" class="w3-input" type="text" placeholder="pod / service name">
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="delEnv();"></div>
+    </div>
+    <div class="card">
+      <h3 class="title">Check <br> Available:</h3>
+      <div class="bar">
+        <select id="ge" class="w3-input" type="text" placeholder="Pod Name">
+          <option>Pod/Deployment</option>
+          <option>Services</option>
+        </select><br>
+        <div class="emptybar"></div>
+        <div class="filledbar"></div>
+      </div>
+      <div class="circle"><br><input class="w3-button w3-xlarge w3-blue" style="margin-left: 5px; border-radius: 15px;" type="submit" value="Run" onclick="Check();"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div style="background-color:  #ffffff; 
+	color: black; 
+	border-bottom-style:none; 
+	height: auto; 
+	width: 81.5%;
+	max-height: 30rem;
+	border-radius: 30px;
+    top: 150;
+    right: 80;
+    font-size: 20px;
+    overflow: auto;">
+      <h3 class="title">Output:</h3>
+	<pre>
+	<p class="newtitle" id="op"></p>
+	</pre>
+    </div>
+    </div>
+</div>
+</div>
+<center><h2>Technologies Used </h2></center>
+<div id="information">
+	<img src="https://th.bing.com/th/id/OIP.3ZnSmLLMR6-SjEfVE-l6AQAAAA?w=169&h=180&c=7&r=0&o=5&dpr=1.25&pid=1.7" height="250" width="250">
+	<img src="https://th.bing.com/th/id/OIP.7D5uM_zPzVpXQMoruEzRPAHaKc?pid=ImgDet&w=800&h=1129&rs=1" height="250" width="250">
+	<img src="https://th.bing.com/th/id/OIP.kB3I5AfJocDs01wOLUuvXQHaHa?pid=ImgDet&w=1253&h=1253&rs=1" height="250" width="250">
+	<img src="https://th.bing.com/th/id/OIP.PXNp62LLV-aLT2ZUpHupZgHaHw?pid=ImgDet&rs=1" height="250" width="250">
+</div>
+<br><br><br>
+<div id="dev">
+	<center>Created By:-> PRABHJEET SINGH</center>
+</div>
+</body>
+<!-- partial -->
+</body>
+</html>
